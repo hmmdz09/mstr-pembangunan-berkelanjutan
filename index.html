@@ -55,10 +55,9 @@
 
             <div class="brand-text">
               <div class="project-tag">
-                <span class="course-badge" title="Mata Kuliah: MSTR Untuk Pembangunan Berkelanjutan"><i class="fa-solid fa-graduation-cap"></i> MSTR UNTUK PEMBANGUNAN BERKELANJUTAN</span>
+                <span class="course-badge" title="Mata Kuliah: MSTR Untuk Pembangunan Berkelanjutan"><i class="fa-solid fa-graduation-cap"></i> MATKUL: MSTR UNTUK PEMBANGUNAN BERKELANJUTAN</span>
                 <span class="corridor-roads">PENDIKFIS • FPMIPA UPI</span>
               </div>
-              <h1>Simulasi 3D Simpang Setiabudi – Jl. Perkasa</h1>
             </div>
           </div>
 
@@ -82,18 +81,6 @@
           </nav>
         </div>
 
-        <!-- 2 PILIHAN SISTEM: PAKE SISTEM VS TANPA SISTEM (TOP HEADER DOCK) -->
-        <div class="system-choice-dock" id="system-choice-dock" role="tablist" aria-label="Mode Sistem Penyeberangan">
-          <button class="sys-choice-btn active" id="btn-sys-after" data-sys="after" type="button" title="Simulasi Dengan Sistem Penyeberangan & Pagar Pembatas">
-            <i class="fa-solid fa-shield-halved"></i>
-            <span>Pake Sistem</span>
-          </button>
-          <button class="sys-choice-btn" id="btn-sys-before" data-sys="before" type="button" title="Simulasi Kondisi Awal: Tanpa Sistem & Tanpa Pagar (Menyebrang Sembarangan)">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            <span>Tanpa Sistem</span>
-          </button>
-        </div>
-
         <div class="header-actions">
           <!-- Quick Day/Sunset/Night Toggle in Header -->
           <div class="dock-lighting-group" title="Waktu & Pencahayaan">
@@ -113,11 +100,6 @@
 
           <div class="header-vsep"></div>
 
-          <div class="status-pill simpang-apill-pill" id="simpang-apill-badge" title="Siklus Lampu Merah Simpang 3 Setiabudi – Terusan – Sersan Bajuri">
-            <i class="fa-solid fa-traffic-light" id="simpang-apill-icon" style="color: #10b981;"></i>
-            <span id="simpang-apill-text">Setiabudi 🟢 80s | Bajuri 🔴 80s</span>
-          </div>
-
           <div class="status-pill" id="zebra-status-badge">
             <span class="pulse-dot"></span>
             <span>Koridor Normal</span>
@@ -129,39 +111,58 @@
         </div>
       </header>
 
-      <!-- BARIS KEDUA: POV KAMERA DOCK (FLOATING SECOND ROW SUB-BAR) -->
-      <nav class="camera-dock-row2 glass-panel" id="camera-dock-row2" aria-label="Mode POV Kamera">
-        <div class="cam-dock-label">
-          <i class="fa-solid fa-video"></i>
-          <span>POV Kamera</span>
+      <!-- BARIS KEDUA: FLOATING SUB-BAR (POV KAMERA & PILIHAN SISTEM DI KANAN) -->
+      <div class="floating-sub-bar" id="floating-sub-bar">
+        <!-- POV KAMERA DOCK (KIRI) -->
+        <nav class="camera-dock-row2 glass-panel" id="camera-dock-row2" aria-label="Mode POV Kamera">
+          <div class="cam-dock-label">
+            <i class="fa-solid fa-video"></i>
+            <span>POV Kamera</span>
+          </div>
+          <div class="cam-button-group">
+            <button class="cam-btn active" data-cam="drone" id="btn-cam-drone" title="Drone View (Isometrik Luas)">
+              <i class="fa-solid fa-helicopter"></i>
+              <span>Drone View</span>
+            </button>
+            <button class="cam-btn" data-cam="orbit" id="btn-cam-orbit" title="Free Orbit (Jelajah 360° Bebas)">
+              <i class="fa-solid fa-globe"></i>
+              <span>Orbit 360°</span>
+            </button>
+            <button class="cam-btn" data-cam="chase" id="btn-cam-chase" title="Chase Cam (Ikuti Kendaraan)">
+              <i class="fa-solid fa-car-side"></i>
+              <span>Chase Mobil</span>
+            </button>
+            <button class="cam-btn" data-cam="zebra" id="btn-cam-zebra" title="Zebra Cross (Trotoar Penyeberangan)">
+              <i class="fa-solid fa-person-walking"></i>
+              <span>Zebra Cross</span>
+            </button>
+            <button class="cam-btn" data-cam="upi" id="btn-cam-upi" title="Gerbang Kampus UPI">
+              <i class="fa-solid fa-landmark"></i>
+              <span>Gerbang UPI</span>
+            </button>
+            <button class="cam-btn" data-cam="simpang" id="btn-cam-simpang" title="Simpang 3 Sersan Bajuri">
+              <i class="fa-solid fa-traffic-light"></i>
+              <span>Simpang 3</span>
+            </button>
+          </div>
+        </nav>
+
+        <!-- 2 PILIHAN SISTEM: PAKAI SISTEM VS TANPA SISTEM (KANAN DENGAN KETERANGAN) -->
+        <div class="system-choice-dock glass-panel" id="system-choice-dock" role="tablist" aria-label="Mode Sistem Penyeberangan">
+          <div class="sys-dock-label">
+            <i class="fa-solid fa-sliders"></i>
+            <span>Pilihan Sistem:</span>
+          </div>
+          <button class="sys-choice-btn active" id="btn-sys-after" data-sys="after" type="button" title="Simulasi Dengan Sistem Penyeberangan & Pagar Pembatas">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Pakai Sistem</span>
+          </button>
+          <button class="sys-choice-btn" id="btn-sys-before" data-sys="before" type="button" title="Simulasi Kondisi Awal: Tanpa Sistem & Tanpa Pagar (Menyebrang Sembarangan)">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>Tanpa Sistem</span>
+          </button>
         </div>
-        <div class="cam-button-group">
-          <button class="cam-btn active" data-cam="drone" id="btn-cam-drone" title="Drone View (Isometrik Luas)">
-            <i class="fa-solid fa-helicopter"></i>
-            <span>Drone View</span>
-          </button>
-          <button class="cam-btn" data-cam="orbit" id="btn-cam-orbit" title="Free Orbit (Jelajah 360° Bebas)">
-            <i class="fa-solid fa-globe"></i>
-            <span>Orbit 360°</span>
-          </button>
-          <button class="cam-btn" data-cam="chase" id="btn-cam-chase" title="Chase Cam (Ikuti Kendaraan)">
-            <i class="fa-solid fa-car-side"></i>
-            <span>Chase Mobil</span>
-          </button>
-          <button class="cam-btn" data-cam="zebra" id="btn-cam-zebra" title="Zebra Cross (Trotoar Penyeberangan)">
-            <i class="fa-solid fa-person-walking"></i>
-            <span>Zebra Cross</span>
-          </button>
-          <button class="cam-btn" data-cam="upi" id="btn-cam-upi" title="Gerbang Kampus UPI">
-            <i class="fa-solid fa-landmark"></i>
-            <span>Gerbang UPI</span>
-          </button>
-          <button class="cam-btn" data-cam="simpang" id="btn-cam-simpang" title="Simpang 3 Sersan Bajuri">
-            <i class="fa-solid fa-traffic-light"></i>
-            <span>Simpang 3</span>
-          </button>
-        </div>
-      </nav>
+      </div>
     </div>
 
     <!-- MAIN INTERACTIVE SIDE DECK -->

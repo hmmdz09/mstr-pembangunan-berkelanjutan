@@ -106,32 +106,48 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 18px;
+  padding: 6px 16px;
   width: 100%;
   z-index: 40;
-  gap: 12px;
+  gap: 10px;
   pointer-events: auto;
+  min-height: 48px;
+  box-sizing: border-box;
 }
 
 /* ==========================================================================
-   BARIS KEDUA: FLOATING POV CAMERA DOCK SUB-BAR
+   BARIS KEDUA: FLOATING SUB-BAR (PILIHAN SISTEM & POV KAMERA)
    ========================================================================== */
+.floating-sub-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  pointer-events: auto;
+  align-self: center;
+  z-index: 38;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
 .camera-dock-row2 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 6px 16px;
+  gap: 10px;
+  padding: 4px 14px;
   border-radius: 999px;
-  background: rgba(10, 16, 32, 0.85);
+  background: rgba(10, 16, 32, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(56, 189, 248, 0.32);
+  border: 1px solid rgba(56, 189, 248, 0.35);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 16px rgba(14, 165, 233, 0.15);
   pointer-events: auto;
   align-self: center;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 38;
+  height: 40px;
+  box-sizing: border-box;
 }
 
 .camera-dock-row2:hover {
@@ -151,6 +167,8 @@ body, html {
   color: #38bdf8;
   padding-right: 10px;
   border-right: 1px solid rgba(255, 255, 255, 0.15);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .cam-dock-label i {
@@ -167,29 +185,43 @@ body, html {
 .camera-dock-row2 .cam-button-group {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+  flex-wrap: nowrap;
 }
 
 .camera-dock-row2 .cam-btn {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 6px 13px;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 5px 11px !important;
+  width: auto !important;
+  height: auto !important;
+  min-height: 28px !important;
+  box-sizing: border-box !important;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   color: #cbd5e1;
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.camera-dock-row2 .cam-btn span {
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1;
 }
 
 .camera-dock-row2 .cam-btn i {
-  font-size: 13px;
+  font-size: 12px;
   color: #94a3b8;
   transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
 .camera-dock-row2 .cam-btn:hover {
@@ -288,23 +320,28 @@ body, html {
   font-size: 11px;
   color: var(--text-muted);
   font-weight: 500;
-  margin-bottom: 2px;
+  margin-bottom: 0;
 }
 
 .course-badge {
-  background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(37, 99, 235, 0.15));
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.22), rgba(37, 99, 235, 0.2));
   color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.4);
-  padding: 2px 8px;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  padding: 3px 8px;
   border-radius: 6px;
   font-weight: 700;
-  font-size: 10.5px;
+  font-size: 11px;
   letter-spacing: 0.02em;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  box-shadow: 0 0 10px rgba(14, 165, 233, 0.15);
+  gap: 6px;
+  box-shadow: 0 0 10px rgba(14, 165, 233, 0.18);
   white-space: nowrap;
+}
+
+.course-badge i {
+  color: #7dd3fc;
+  font-size: 11px;
 }
 
 .corridor-badge {
@@ -430,7 +467,7 @@ body, html {
   gap: 2px;
 }
 
-.cam-btn {
+.camera-dock .cam-btn {
   background: transparent;
   border: 1px solid transparent;
   color: var(--text-muted);
@@ -507,13 +544,13 @@ body, html {
 
 .control-deck {
   position: absolute;
-  top: 76px;
+  top: 104px;
   left: 20px;
   display: flex;
   flex-direction: column;
   gap: 14px;
   width: 335px;
-  max-height: calc(100vh - 110px);
+  max-height: calc(100vh - 124px);
   overflow-y: auto;
   padding-right: 4px;
   scrollbar-width: thin;
@@ -1378,21 +1415,45 @@ input[type="range"]::-webkit-slider-thumb:hover {
 /* ==========================================================================
    8. RESPONSIVE DESIGN
    ========================================================================== */
-@media (max-width: 1200px) {
+@media (max-width: 1366px) {
   .corridor-roads {
     display: none;
+  }
+  .header-actions .time-badge {
+    display: none;
+  }
+  .course-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+}
+
+@media (max-width: 1200px) {
+  #zebra-status-badge {
+    display: none;
+  }
+  .floating-sub-bar {
+    gap: 8px;
+  }
+  .camera-dock-row2 {
+    padding: 4px 10px;
+    gap: 6px;
+  }
+  .camera-dock-row2 .cam-btn {
+    padding: 5px 9px !important;
+    font-size: 11px;
   }
 }
 
 @media (max-width: 990px) {
-  .cam-btn span {
+  .camera-dock-row2 .cam-btn span {
     display: none;
   }
-  .cam-btn {
-    padding: 4px 6px;
+  .camera-dock-row2 .cam-btn {
+    padding: 6px 9px !important;
   }
-  .header-actions .time-badge {
-    display: none;
+  .sys-choice-btn span {
+    font-size: 11px;
   }
 }
 
@@ -1427,36 +1488,62 @@ input[type="range"]::-webkit-slider-thumb:hover {
    9. DOCK 2 PILIHAN SISTEM: PAKE SISTEM VS TANPA SISTEM
    ========================================================================== */
 .system-choice-dock {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  background: rgba(15, 23, 42, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(10, 16, 32, 0.88);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-radius: 9999px;
-  padding: 3px;
-  gap: 3px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  padding: 4px;
+  gap: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 16px rgba(16, 185, 129, 0.12);
   flex-shrink: 0;
   pointer-events: auto;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.sys-dock-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #34d399;
+  padding: 0 10px 0 8px;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sys-dock-label i {
+  color: #10b981;
+  font-size: 12px;
 }
 
 .sys-choice-btn {
-  background: transparent;
-  border: 1px solid transparent;
-  color: var(--text-muted, #94a3b8);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
   padding: 5px 12px;
   border-radius: 9999px;
   font-family: var(--font-heading, 'Outfit', sans-serif);
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 0.01em;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
+  height: 30px;
+  box-sizing: border-box;
 }
 
 .sys-choice-btn i {
@@ -4117,38 +4204,22 @@ input[type="range"]::-webkit-slider-thumb:hover {
    RESPONSIVE NAVBAR & ZERO-COLLISION HEADER RULES
    Ensures CCTV, main navigation, and critical controls are ALWAYS 100% visible
    ========================================================================== */
-@media (max-width: 1750px) {
-  .project-tag {
-    display: none !important;
-  }
-}
-
 @media (max-width: 1580px) {
   #zebra-status-badge {
     display: none !important;
   }
   .header-branding h1 {
-    font-size: 13px;
+    font-size: 13.5px;
   }
   .top-header {
-    padding: 6px 12px;
-    gap: 6px;
+    padding: 6px 14px;
+    gap: 8px;
   }
 }
 
 @media (max-width: 1440px) {
   #hud-clock {
     display: none !important;
-  }
-  #simpang-apill-badge {
-    font-size: 11px;
-    padding: 4px 8px;
-  }
-  .sys-choice-btn span {
-    display: none;
-  }
-  .sys-choice-btn {
-    padding: 6px 10px;
   }
   .header-actions {
     gap: 6px;
